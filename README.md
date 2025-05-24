@@ -1,12 +1,29 @@
-# React + Vite
+# 🌟 Blink Tac Toe 🔮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern neon twist on classic Tic Tac Toe — built with React, drag-and-drop emoji placement, sound effects, glowing animations, and rule-breaking vanishing moves.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎮 Drag & Drop Emojis (via `react-dnd`)
+- 💫 Vanishing Rule: Only 3 emojis allowed per player — old ones vanish!
+- 🔊 Sound Effects for click, win, and errors (`howler.js`)
+- 🎉 Win Detection with Modal Popups
+- 🧠 Help Modal with Game Rules
+- 🔁 Game Reset and Score Tracking (`localStorage`)
+- ⚡ Neon UI with Glowing Effects
+- 📱 Fully Responsive
 
-## Expanding the ESLint configuration
+## 🛠 Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [React DnD](https://react-dnd.github.io/react-dnd/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Howler.js](https://howlerjs.com/)
+- CSS3 (Neon Design)
+
+## 🚀 Run Locally
+
+```bash
+npm install
+npm run dev

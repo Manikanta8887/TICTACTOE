@@ -15,14 +15,13 @@ export default function Game() {
   const navigate = useNavigate();
   const { selectedCategories } = useCategories();
   const { player1Category, player2Category } = selectedCategories;
-
+  const [showHelp, setShowHelp] = useState(false);
   const [grid, setGrid] = useState(INITIAL_GRID);
   const [moves, setMoves] = useState({ 1: [], 2: [] });
   const [turn, setTurn] = useState(1);
   const [winner, setWinner] = useState(null);
   const [scores, setScores] = useState({ 1: 0, 2: 0 });
   const [errorPopup, setErrorPopup] = useState("");
-
   const players = { 1: player1Category, 2: player2Category };
 
   useEffect(() => {
@@ -113,7 +112,7 @@ export default function Game() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Blink Emoji Tic Tac Toe
+          Tic Tac Toe
         </motion.h1>
 
         <motion.div
@@ -144,58 +143,36 @@ export default function Game() {
 
         <Board grid={grid} onDrop={handleDrop} currentTurn={turn} winner={winner} />
 
-        <div className="mt-6 space-x-3">
-          <button
-            onClick={handleReset}
-            className="px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-600 transition"
-          >
-            Reset Game
-          </button>
-          <button
-            onClick={handleScoreReset}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
-          >
-            Reset Scores
-          </button>
-          <button
-            onClick={handleNewGame}
-            className="px-4 py-2 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition"
-          >
-            New Game
-          </button>
+        <div className="flex flex-wrap justify-center gap-2 p-4">
+          <div className="mt-6 space-x-3">
+            <button
+              onClick={handleReset}
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-600 transition"
+            >
+              Reset Game
+            </button>
+            <button
+              onClick={handleScoreReset}
+              className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
+            >
+              Reset Scores
+            </button>
+            <button
+              onClick={handleNewGame}
+              className="px-4 py-2 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition"
+            >
+              New Game
+            </button>
+            <button
+              onClick={() => setShowHelp(true)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
+            >
+              Help
+            </button>
+          </div>
         </div>
 
-        {/* <AnimatePresence>
-          {winner && (
-            <motion.div
-              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                className="bg-white p-6 rounded-2xl shadow-2xl text-center max-w-sm mx-auto"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-              >
-                <p className="text-4xl mb-4 animate-pulse">🎉🎊🥳</p>
-                <h2 className="text-2xl font-bold text-green-700 mb-2">
-                  Congratulations Player {winner}!
-                </h2>
-                <p className="text-lg text-gray-700 mb-4">
-                  You blinked your way to victory! 🕹️💥
-                </p>
-                <button
-                  onClick={handleReset}
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-                >
-                  OK
-                </button>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence> */}
+        {/* Winner Modal */}
         <AnimatePresence>
           {winner && (
             <motion.div
@@ -242,8 +219,36 @@ export default function Game() {
           )}
         </AnimatePresence>
 
+        {/* Help Modal */}
+        <AnimatePresence>
+          {showHelp && (
+            <motion.div
+              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="relative bg-white p-6 rounded-2xl shadow-2xl text-center max-w-md w-full mx-4"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+              >
+                {/* ❌ Close button */}
+                <button
+                  onClick={() => setShowHelp(false)}
+                  className="absolute top-2 right-3 text-gray-500 text-2xl hover:text-red-600 transition"
+                  aria-label="Close"
+                >
+                  ❌
+                </button>
+                <Help onClose={() => setShowHelp(false)} />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-
+        {/* Error Popup */}
         <AnimatePresence>
           {errorPopup && (
             <motion.div
@@ -260,4 +265,3 @@ export default function Game() {
     </DndProvider>
   );
 }
-

@@ -58,3 +58,32 @@
 .animate-fade-in-out {
   animation: fadeInOut 2.5s ease-in-out forwards;
 }
+
+/* Add this to your global CSS or appropriate CSS module */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.responsive-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  min-width: 120px;
+  text-align: center;
+  flex: 1 1 auto;
+  max-width: 200px;
+}
+
+/* Optional media query for extra small screens */
+@media (max-width: 400px) {
+  .responsive-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+  }
+}
