@@ -15,3 +15,4 @@ const EmojiPicker = ({ category, player }) => {
 };
 
 export default EmojiPicker;
+

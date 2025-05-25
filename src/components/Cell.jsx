@@ -46,3 +46,4 @@ const Cell = ({ index, emojiData, onDrop, currentTurn, winner }) => {
 };
 
 export default Cell;
+
