@@ -143,7 +143,7 @@ export default function Game() {
 
         <Board grid={grid} onDrop={handleDrop} currentTurn={turn} winner={winner} />
 
-        <div className="flex flex-wrap justify-center gap-2 p-4">
+        {/* <div className="flex flex-wrap justify-center gap-2 p-4">
           <div className="mt-6 space-x-3">
             <button
               onClick={handleReset}
@@ -170,7 +170,36 @@ export default function Game() {
               Help
             </button>
           </div>
+        </div> */}
+        <div className="w-full px-4 mt-6">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <button
+              onClick={handleReset}
+              className="w-full sm:w-auto px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-600 transition"
+            >
+              Reset Game
+            </button>
+            <button
+              onClick={handleScoreReset}
+              className="w-full sm:w-auto px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
+            >
+              Reset Scores
+            </button>
+            <button
+              onClick={handleNewGame}
+              className="w-full sm:w-auto px-4 py-2 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition"
+            >
+              New Game
+            </button>
+            <button
+              onClick={() => setShowHelp(true)}
+              className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
+            >
+              Help
+            </button>
+          </div>
         </div>
+
 
         {/* Winner Modal */}
         <AnimatePresence>
