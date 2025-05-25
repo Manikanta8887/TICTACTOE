@@ -40,12 +40,10 @@ const CategorySelection = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-100 via-orange-200 to-orange-300 flex flex-col items-center justify-center p-4 relative">
       
-      {/* ✨ Game Title */}
       <h1 className="text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-yellow-500 to-pink-500 drop-shadow-md">
-        ✨ Blink Tic Tac Toe
+        Blink Tic Tac Toe
       </h1>
 
-      {/* 🔔 Error Toast */}
       {showError && (
         <div className="absolute top-4 bg-orange-600 text-white px-6 py-3 rounded-xl text-sm shadow-lg animate-fade-in-out z-50">
           Please select categories for both players!
@@ -58,7 +56,6 @@ const CategorySelection = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Player 1 */}
           <div>
             <h3 className="text-xl font-semibold text-orange-600 mb-4 text-center">Player 1 Category</h3>
             <div className="space-y-3">
@@ -84,7 +81,6 @@ const CategorySelection = () => {
             </div>
           </div>
 
-          {/* Player 2 */}
           <div>
             <h3 className="text-xl font-semibold text-orange-600 mb-4 text-center">Player 2 Category</h3>
             <div className="space-y-3">

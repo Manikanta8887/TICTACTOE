@@ -143,34 +143,6 @@ export default function Game() {
 
         <Board grid={grid} onDrop={handleDrop} currentTurn={turn} winner={winner} />
 
-        {/* <div className="flex flex-wrap justify-center gap-2 p-4">
-          <div className="mt-6 space-x-3">
-            <button
-              onClick={handleReset}
-              className="px-4 py-2 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-600 transition"
-            >
-              Reset Game
-            </button>
-            <button
-              onClick={handleScoreReset}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
-            >
-              Reset Scores
-            </button>
-            <button
-              onClick={handleNewGame}
-              className="px-4 py-2 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition"
-            >
-              New Game
-            </button>
-            <button
-              onClick={() => setShowHelp(true)}
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
-            >
-              Help
-            </button>
-          </div>
-        </div> */}
         <div className="w-full px-4 mt-6">
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <button
@@ -200,8 +172,6 @@ export default function Game() {
           </div>
         </div>
 
-
-        {/* Winner Modal */}
         <AnimatePresence>
           {winner && (
             <motion.div
@@ -248,7 +218,6 @@ export default function Game() {
           )}
         </AnimatePresence>
 
-        {/* Help Modal */}
         <AnimatePresence>
           {showHelp && (
             <motion.div
@@ -263,7 +232,6 @@ export default function Game() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
               >
-                {/* ❌ Close button */}
                 <button
                   onClick={() => setShowHelp(false)}
                   className="absolute top-2 right-3 text-gray-500 text-2xl hover:text-red-600 transition"
@@ -277,7 +245,6 @@ export default function Game() {
           )}
         </AnimatePresence>
 
-        {/* Error Popup */}
         <AnimatePresence>
           {errorPopup && (
             <motion.div
